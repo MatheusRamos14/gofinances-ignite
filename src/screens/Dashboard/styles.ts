@@ -3,6 +3,7 @@ import { FlatList, FlatListProps } from 'react-native';
 import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { RFValue, RFPercentage } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 import { DataProps } from '.';
 
@@ -58,6 +59,8 @@ export const Username = styled.Text`
     font-size: ${RFValue(18)}px;
 `;
 
+export const Borderless = styled(BorderlessButton)``;
+
 export const Icon = styled(Feather)`
     color: ${({ theme }) => theme.colors.secondary};
     font-size: ${RFValue(24)}px;
@@ -75,7 +78,7 @@ export const HighlightCards = styled.ScrollView.attrs({
 `;
 
 export const Transactions = styled.View`
-    width: 100%;
+    flex: 1;
 
     padding: 84px 24px 0;
 `;
@@ -95,4 +98,40 @@ export const TransactionsList = styled(
     contentContainerStyle: {
         paddingBottom: getBottomSpace(),
     },
+})``;
+
+export const EmptyContainer = styled.View`
+    flex: 1;
+
+    align-items: center;
+`;
+
+export const EmptyTitle = styled.Text`
+    color: ${({ theme }) => theme.colors.title};
+    font-family: ${({ theme }) => theme.fonts.medium};
+    font-size: ${RFValue(14)}px;
+`;
+
+export const EmptyButton = styled(BorderlessButton)``;
+
+export const EmptyText = styled.Text`
+    color: ${({ theme }) => theme.colors.text};
+    font-family: ${({ theme }) => theme.fonts.regular};
+    font-size: ${RFValue(12)}px;
+
+    text-decoration: underline;
+    text-decoration-color: #3333;
+
+    margin-top: ${RFValue(10)}px;
+`;
+
+export const LoadContainer = styled.View`
+    flex: 1;
+
+    align-items: center;
+    justify-content: center;
+`;
+
+export const LoadingIndicator = styled.ActivityIndicator.attrs({
+    size: 'large'
 })``;
